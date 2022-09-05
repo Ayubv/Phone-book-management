@@ -15,11 +15,11 @@ class FoderController extends Controller
         $this->middleware('auth');
         }
 
-
+       
 
     public function index()
     {   
-        //$foders = Foder::latest()->get();
+      
         $foders = Foder::where('user_id',Auth::user()->id)->get();
         return view('/foders/index',compact('foders'));
 

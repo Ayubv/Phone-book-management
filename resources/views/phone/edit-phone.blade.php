@@ -43,10 +43,11 @@ Create phone book
 <label for="image">Image :</label>
 </div>
 <div class="col-md-7">
-<input type="file" name="image" id="image" value="{{ $editphone->image}}" class="form-control">
+    <input type="file" name="image" id="image" class="form-control">
+    <input type="hidden"  name="old_image" id="old_image" value="{{ $editphone->image}}" class="form-control">
 </div>
 <div class="col-md-2">
-<img class="rounded-circle" id ="img_preview" src="{{asset('/images/default_profile.jpg')}}" alt="" style="width: 150px; height: 150px;">
+<img class="rounded-circle" id ="img_preview" src="{{asset($editphone->image)}}" alt="" style="width: 150px; height: 150px;">
 </div>
 </div>
 <div class="row mb-3">

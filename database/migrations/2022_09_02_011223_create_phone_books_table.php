@@ -20,6 +20,7 @@ class CreatePhoneBooksTable extends Migration
             $table->string('email')->nullable();
             $table->string('image')->nullable();
             $table->string('description')->nullable();
+            $table->string('user_id');
             $table->timestamps();
         });
     }
