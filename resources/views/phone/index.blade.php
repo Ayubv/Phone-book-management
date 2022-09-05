@@ -40,7 +40,7 @@ Phone
 <td>{{$phone->email}}</td>
 {{-- <td>{{$phone->image}}</td> --}}
 <td>
-    <img src="{{url('storage/phone-user'.$phone->image) }}" alt="">
+    <img src="{{asset($phone->image)}}" alt="" style="width: 50px; height: 50px;">
 </td>
 <td>{{$phone->description}}</td>
 

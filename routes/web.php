@@ -40,7 +40,7 @@ Route::get('layouts/tables', function () {
     return view('layouts/tables');
 });
 
-Route::get('profiles/profile', [CustomAuthController::class, 'profile']); 
+ 
 Route::get('layouts/admin', [CustomAuthController::class, 'admin']); 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -130,6 +130,7 @@ Route::get('/m',function(){
 });
 
 // phone
+Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix'=>'phone'],function(){
     Route::get('/index',[PhoneBookController::class,'index']);
     Route::get('/create',[PhoneBookController::class,'create']);
@@ -137,4 +138,7 @@ Route::group(['prefix'=>'phone'],function(){
     Route::get('/edit-phone/{id}',[PhoneBookController::class,'editPhone']);
     Route::post('/update-phone/{id}',[PhoneBookController::class,'updatePhone']);
     Route::get('/delete-phone/{id}',[PhoneBookController::class,'deletePhone']);
+    
+    
+});
 });

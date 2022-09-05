@@ -13,7 +13,7 @@ Foders
 <h2>Create foder</h2>
 </div>
 <div>
-<a class="btn btn-info" href="{{url('/foders/index')}}">Show All</a>
+<a class="btn btn-info mybutton" href="{{url('/foders/index')}}">Show All</a>
 </div>
 </div>
 <div class="card-body">
@@ -35,7 +35,7 @@ Foders
 </div>
 <div class="form-group col-md-12 mb-3 d-flex justify-content-between">
     {!! Form::submit('submit',['class'=>'btn btn-info mt-2'])!!}
-    {!! Form::submit('back',['class'=>'btn btn-dark mt-2']) !!}
+    {!! Form::submit('Back',['class'=>'btn btn-primary mt-2 mybutton'])!!}
     {{-- {!! Form::button('Back',['class'=>'btn btn-danger'])!!} --}}
 </div>
 {!!Form::close() !!}   
