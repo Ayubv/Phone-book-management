@@ -3,6 +3,7 @@
 <script src="{{asset('backend/js/all.js')}}"></script>
 <script src="{{asset('select2/dist/js/select2.min.js')}}"></script>
 <script src="{{asset('backend/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('backend/js/bootstrap-toggle.min.js')}}"></script>
 <script src="{{asset('backend/js/popper.min.js')}}"></script>
 <script src="{{asset('backend/js/scripts.js')}}"></script>
 <script src="{{asset('backend/js/Chart.min.js')}}" crossorigin="anonymous"></script>

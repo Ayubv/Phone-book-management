@@ -19,7 +19,7 @@
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item" href="{{url('phone/profile')}}">Profile</a></li>
+<li><a class="dropdown-item" href="{{url('profile')}}">Profile</a></li>
 <li><a class="dropdown-item" href="#!">Settings</a></li>
 <li><hr class="dropdown-divider" /></li>
 <li><a class="dropdown-item" href="{{url('signout')}}">Logout</a></li>
@@ -33,12 +33,12 @@
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 <div class="sb-sidenav-menu">
 <div class="nav">
-<div class="sb-sidenav-menu-heading">Core</div>
+
 <a class="nav-link" href="{{url('dashboard')}}">
 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 Dashboard
 </a>
-<div class="sb-sidenav-menu-heading">Interface</div>
+
 
 
 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -69,8 +69,8 @@ Users
 </a>
 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
 <nav class="sb-sidenav-menu-nested nav">
-<a class="nav-link" href="{{url('layouts/showusers')}}">All Users</a>
-<a class="nav-link" href="register.html">Add Users</a>
+<a class="nav-link" href="{{url('showusers')}}">All Users</a>
+<a class="nav-link" href="{{url('createUser')}}">Add Users</a>
 
 </nav>
 </div>
@@ -174,7 +174,12 @@ Start Bootstrap
 </div>
 <div id="layoutSidenav_content">
     @yield('content')
+    
 </div>
+
 </div>
+
 {{-- script --}}
+
 @include('layouts/script')
+

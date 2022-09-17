@@ -2,6 +2,17 @@
 @section('title')
 Category
 @endsection
+<style>
+    input, button, select, optgroup, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    float: right;
+    background: none;
+}
+</style>
 @section('content')
 <div class="container">
     @include('layouts\messages')

@@ -94,4 +94,6 @@ $deleteCow->delete();
 Session::flash('success','data delete');
 return redirect('/cows/index');
 }
+
+
 }

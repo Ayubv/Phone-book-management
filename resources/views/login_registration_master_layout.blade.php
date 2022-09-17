@@ -14,9 +14,8 @@
 
 <style>
 body{
-margin:0;
 padding: 0;
-overflow: hidden;
+/* margin-bottom: -30% !important; */
 }
 #particles-js{
 background:#0c0b33;
@@ -25,24 +24,20 @@ background:#0c0b33;
 }
 
 main.login-form {
-position: absolute;
-width: 100%;
-top: 20%;
+  position: absolute;
+  width: 100%;
+  top: 20%;
 }
-.signup-form{
-position: absolute;
-width: 100%;
-top:3%;
-
-}
+/* .signup-form{
+  position: absolute;
+  width: 100%;
+  top:-1%;
+} */
 .card {
-
-background-color:#040530ab ;
-
+  background-color:#040530ab ;
 }
 .form-control, .dataTable-input {
-
-background: transparent;
+  background: transparent;
 }
 
 svg.svg-inline--fa.fa-envelope {
@@ -70,14 +65,14 @@ svg.svg-inline--fa.fa-key {
 
 
 <div class="conatiner">
-<div id="particles-js"></div>
-<div class="row vh-100 justify-content-center align-items-center">
+{{-- <div id="particles-js"></div> --}}
+<div class="row justify-content-center align-items-center">
 <div class="col-md-12">
 @yield('login_registration_main_content')
 </div>
 </div>
 </div>
-<canvas class="background"></canvas>
+{{-- <canvas class="background"></canvas> --}}
 <script src="{{asset('backend/js/jquery.js')}}"></script>
 <script src="{{asset('backend/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('backend/js/all.js')}}"></script>
@@ -89,5 +84,6 @@ svg.svg-inline--fa.fa-key {
       $("#getCountry").select2();   
     });      
   </script>   
+  @yield('footer-scripts')
 </body>
 </html>

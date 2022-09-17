@@ -3,15 +3,17 @@
 
 use App\Models\Cow;
 use App\Models\Foder;
+use App\Models\Country;
+use App\Models\Product;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CowController;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\PhoneBookController;
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +29,34 @@ use Illuminate\Support\Facades\Session;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('layouts/showusers', function () {
+// Route::get('showusers', function () {
+   
+//     $users= User::all();
+//     return view('showusers',compact('users'));
+// });
+Route::get('layouts/createUser', function () {
 
     $users= User::all();
-    return view('layouts/showusers',compact('users'));
-});
-Route::get('layouts/charts', function () {
-    return view('layouts/charts');
+    return view('layouts.createUser',compact('users'));
 });
 
-Route::get('layouts/tables', function () {
-    return view('layouts/tables');
-});
+
+//users table
+Route::get('/showusers', [CustomAuthController::class, 'showUser']);
+Route::get('/createUser', [CustomAuthController::class, 'createUser']); 
+Route::post('/storeUser', [CustomAuthController::class, 'storeUser']); 
+Route::get('/change-status/{stauts}/{id}', [CustomAuthController::class, 'changeStatus']); 
+
+
+
+
+// Route::get('layouts/charts', function () {
+//     return view('layouts.charts');
+// });
+
+// Route::get('layouts/tables', function () {
+//     return view('layouts/tables');
+// });
 
  
 Route::get('layouts/admin', [CustomAuthController::class, 'admin']); 
@@ -141,4 +159,49 @@ Route::group(['prefix'=>'phone'],function(){
     
     
 });
+});
+
+Route::group(['middleware'=>'auth'],function(){
+Route::get('/profile',[CustomAuthController::class, 'pro_file']);
+Route::post('/update-profile/{id}',[CustomAuthController::class, 'update_profile']);
+
+});
+Route::get('/get-division/{country_id}',[CustomAuthController::class,'getDivisions']);
+Route::get('/get-district/{division_id}',[CustomAuthController::class,'getDistricts']);
+Route::get('/get-upazila/{district_id}',[CustomAuthController::class,'getUpazilas']);
+// Route::get('/query',function(){
+
+// $re=Product::whereNotIn('buy_price',[200,140,500])->get();
+// return $re;
+// });
+
+
+
+//address
+Route::get('/address/index', [App\Http\Controllers\AddressController::class, 'index']);
+Route::get('/address/create', [App\Http\Controllers\AddressController::class, 'create']);
+Route::post('/address/store', [App\Http\Controllers\AddressController::class, 'storeAddress']);
+Route::get('/address/edit/{id}', [App\Http\Controllers\AddressController::class, 'editAddress']);
+Route::post('/address/update/{id}', [App\Http\Controllers\AddressController::class, 'updateAddress']);
+Route::get('/address/delete/{id}', [App\Http\Controllers\AddressController::class, 'deleteAddress']);
+
+Route::get('/address/get-division/{country_id}',[App\Http\Controllers\AddressController::class,'getDivisions']);
+Route::get('/address/get-district/{division_id}',[App\Http\Controllers\AddressController::class,'getDistricts']);
+Route::get('/address/get-upazila/{district_id}',[App\Http\Controllers\AddressController::class,'getUpazilas']);
+// students
+
+Route::group(['prefix'=>'students','middleware' => 'auth'],function(){
+    Route::get('/manage',[App\Http\Controllers\StudentController ::class,'manage']);
+    Route::get('/create',[App\Http\Controllers\StudentController ::class,'createStudent']);
+    Route::post('/store/{id?}',[App\Http\Controllers\StudentController ::class,'storeStudent']);
+    Route::get('/edit/{id}',[App\Http\Controllers\StudentController ::class,'editStudent']);
+    Route::post('/update/{id}',[App\Http\Controllers\StudentController ::class,'updateStudent']);
+    Route::get('/delete/{id}',[App\Http\Controllers\StudentController ::class,'deleteStudent']);
+});
+
+Route::get('/customer/{id?}',function($id=''){
+    if($id){
+        return "Customer er id ache";
+    }
+    return "Customer er id nai";
 });

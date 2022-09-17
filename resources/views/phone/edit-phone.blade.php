@@ -1,14 +1,25 @@
 @extends('layouts.admin')
 @section('title')
-Create phone book
+ phone book
 @endsection
+<style>
+    input, button, select, optgroup, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    float: right;
+    background: none;
+}
+</style>
 @section('content')
 <div class="container mt-4">
 <div class="row">
 <div class="col-md-12">
 <div class="card">
 <div class="card-header">
-<h4>Create phone book</h4>
+<h4>Edit phone book</h4>
 </div>
 <div class="card-body">
 <form action="{{url('/phone/update-phone/'.$editphone->id)}}" method="post" enctype="multipart/form-data">
@@ -47,7 +58,7 @@ Create phone book
     <input type="hidden"  name="old_image" id="old_image" value="{{ $editphone->image}}" class="form-control">
 </div>
 <div class="col-md-2">
-<img class="rounded-circle" id ="img_preview" src="{{asset($editphone->image)}}" alt="" style="width: 150px; height: 150px;">
+<img class="rounded-circle" id ="img_preview" src="{{$editphone->image?asset($editphone->image):asset('/images/default_profile.jpg')}}" alt="" style="width: 150px; height: 150px;">
 </div>
 </div>
 <div class="row mb-3">

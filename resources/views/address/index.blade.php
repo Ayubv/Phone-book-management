@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-Users
+Users Address
 @endsection
 @section('content')
 <main>
@@ -11,7 +11,7 @@ Users
 <h2>This is Users list</h2>
 </div>
 <div class="w-20">
-<a class="btn btn-danger" href="{{url('users/create')}}">Add Users</a>
+<a class="btn btn-danger" href="{{url('address/create')}}">Add Users Address</a>
 </div>
 </div>
 </div>
@@ -20,27 +20,27 @@ Users
 <thead class="thead-light">
 <tr>
 <th>Name</th>
-<th>E-mail</th>
+<th>Country</th>
 <th>Division</th>
 <th>District</th>
 <th>Upazela</th>
-<th>Union</th>
+
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-@foreach ($users as $user)
+@foreach ($address as $addr)
 <tr>
-<td>{{$user->name}}</td>
-<td>{{$user->email}}</td>
-<td>{{$user->division}}</td>
-<td>{{$user->district}}</td>
-<td>{{$user->upazela}}</td>
-<td>{{$user->uPorisod}}</td>
+<td>{{$addr->name}}</td>
+<td>{{$addr->country_name}}</td>
+<td>{{$addr->division_name}}</td>
+<td>{{$addr->district_name}}</td>
+<td>{{$addr->upazila_name}}</td>
+
 <td>
 
-<a class="btn btn-danger" href="{{url('users/user-edit/'.$user->id)}}">Edit</a>
-<a class="btn btn-success" href="{{url('users/user-delete/'.$user->id)}}">Delete</a>
+<a class="btn btn-danger" href="{{url('address/edit/'.$addr->id)}}">Edit</a>
+<a class="btn btn-success" href="{{url('address/delete/'.$addr->id)}}">Delete</a>
 </td>
 </tr>
 @endforeach
@@ -64,3 +64,4 @@ Users
 </div>
 </footer>
 @endsection
+

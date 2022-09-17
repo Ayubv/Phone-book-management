@@ -20,6 +20,7 @@ public function product(){
     )
     ->latest()->paginate(10);
     return view('product',compact('products'));
+    
 
  
 
